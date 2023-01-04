@@ -7,8 +7,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
@@ -189,7 +188,6 @@ fun UserCardFemale(user: User) {
 
 @Composable
 fun Conversation(user: List<User>) {
-
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             modifier = Modifier
@@ -200,7 +198,7 @@ fun Conversation(user: List<User>) {
             style = MaterialTheme.typography.body1,
 
         )
-        LazyColumn {
+        LazyRow {
             items(user) { user ->
                 if (user.gender == Gender.MALE) {
                     UserCardMan(user)
@@ -208,6 +206,15 @@ fun Conversation(user: List<User>) {
                     UserCardFemale(user)
                 }
 
+            }
+        }
+        LazyColumn {
+            items(user) { user ->
+                if (user.gender == Gender.MALE) {
+                    UserCardMan(user)
+                } else {
+                    UserCardFemale(user)
+                }
             }
         }
     }
