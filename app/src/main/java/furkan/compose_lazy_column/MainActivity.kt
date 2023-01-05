@@ -23,12 +23,11 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.fontResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import furkan.compose_lazy_column.ui.theme.ComposelazycolumnTheme
 import furkan.compose_lazy_column.ui.theme.PURPLE
-
-//TODO all Text' should  collect under a function
 
 class MainActivity : ComponentActivity() {
 
@@ -79,31 +78,13 @@ fun UserCardMan(user: User) {
             modifier = Modifier
                 .padding(all = 15.dp)
         ) {
-            Text(
-                text = user.name,
-                color = Color.White,
-                style = MaterialTheme.typography.body1,
-            )
-            Text(
-                text = user.surname,
-                color = Color.White,
-                style = MaterialTheme.typography.body1,
-            )
+            MyTextView(text = user.name, color = Color.White, style = FontStyle.Normal)
+            MyTextView(text = user.surname, color = Color.White, style = FontStyle.Normal)
         }
         Column() {
-            Text(
-                text = user.job,
-                color = Color.White,
-                style = MaterialTheme.typography.body1,
-            )
-            Text(
-                text = user.experience,
-                color = Color.White,
-                style = MaterialTheme.typography.body1,
-
-                )
+            MyTextView(text = user.job, color = Color.White, style = FontStyle.Normal)
+            MyTextView(text = user.experience, color = Color.White, style = FontStyle.Normal)
         }
-
     }
 }
 
@@ -142,30 +123,14 @@ fun UserCardFemale(user: User) {
             modifier = Modifier
                 .padding(all = 15.dp)
         ) {
-            Text(
-                text = user.name,
-                color = Color.White,
-                style = MaterialTheme.typography.body1,
-            )
-            Text(
-                text = user.surname,
-                color = Color.White,
-                style = MaterialTheme.typography.body1,
-            )
+            MyTextView(text = user.name, color = Color.White, style = FontStyle.Normal)
+            MyTextView(text = user.surname, color = Color.White, style = FontStyle.Normal)
+
         }
         Column() {
-            Text(
-                text = user.job,
-                color = Color.White,
-                style = MaterialTheme.typography.body1,
-            )
-            Text(
-                text = user.experience,
-                color = Color.White,
-                style = MaterialTheme.typography.body1,
-            )
+            MyTextView(text = user.job, color = Color.White, style = FontStyle.Normal)
+            MyTextView(text = user.experience, color = Color.White, style = FontStyle.Normal)
         }
-
     }
 }
 
@@ -191,7 +156,7 @@ fun Conversation(user: List<User>) {
 
             }
         }
-        LazyColumn {
+        LazyColumn() {
             items(user) { user ->
                 if (user.gender == Gender.MALE) {
                     UserCardMan(user)
