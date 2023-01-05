@@ -75,20 +75,19 @@ fun UserCardMan(user: User) {
                 .clip(CircleShape)
             //.border(2.dp, Color.White, CircleShape)
         )
-        Column() {
+        Column(
+            modifier = Modifier
+                .padding(all = 15.dp)
+        ) {
             Text(
                 text = user.name,
                 color = Color.White,
                 style = MaterialTheme.typography.body1,
-                modifier = Modifier
-                    .padding(all = 15.dp)
             )
             Text(
                 text = user.surname,
                 color = Color.White,
                 style = MaterialTheme.typography.body1,
-                modifier = Modifier
-                    .padding(all = 15.dp)
             )
         }
         Column() {
@@ -96,24 +95,13 @@ fun UserCardMan(user: User) {
                 text = user.job,
                 color = Color.White,
                 style = MaterialTheme.typography.body1,
-                modifier = Modifier
-                    .padding(all = 15.dp)
             )
             Text(
                 text = user.experience,
                 color = Color.White,
                 style = MaterialTheme.typography.body1,
-                modifier = Modifier
-                    .padding(all = 15.dp)
-                    .clickable {
-                        Toast
-                            .makeText(
-                                context,
-                                "${user.name} - ${user.surname} -${user.job}", Toast.LENGTH_SHORT
-                            )
-                            .show()
-                    }
-            )
+
+                )
         }
 
     }
@@ -150,20 +138,19 @@ fun UserCardFemale(user: User) {
 
             //.border(2.dp, Color.White, CircleShape)
         )
-        Column() {
+        Column(
+            modifier = Modifier
+                .padding(all = 15.dp)
+        ) {
             Text(
                 text = user.name,
                 color = Color.White,
                 style = MaterialTheme.typography.body1,
-                modifier = Modifier
-                    .padding(all = 15.dp)
             )
             Text(
                 text = user.surname,
                 color = Color.White,
                 style = MaterialTheme.typography.body1,
-                modifier = Modifier
-                    .padding(all = 15.dp)
             )
         }
         Column() {
@@ -171,15 +158,11 @@ fun UserCardFemale(user: User) {
                 text = user.job,
                 color = Color.White,
                 style = MaterialTheme.typography.body1,
-                modifier = Modifier
-                    .padding(all = 15.dp)
             )
             Text(
                 text = user.experience,
                 color = Color.White,
                 style = MaterialTheme.typography.body1,
-                modifier = Modifier
-                    .padding(all = 15.dp)
             )
         }
 
@@ -197,7 +180,7 @@ fun Conversation(user: List<User>) {
             fontFamily = FontFamily.SansSerif,
             style = MaterialTheme.typography.body1,
 
-        )
+            )
         LazyRow {
             items(user) { user ->
                 if (user.gender == Gender.MALE) {
