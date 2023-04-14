@@ -6,7 +6,6 @@
 - LazyColumn - A composable function that creates a vertically scrollable list of items.
 - Circle Image - A composable function that creates a circular image.
 
-https://user-images.githubusercontent.com/74837526/210633799-6cd0b965-f8e3-41b1-b0ff-725cad7992f4.mp4
 
 
 
